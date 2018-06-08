@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Music</string>
+    <string name="rock">Rock</string>
+    <string name="eletronic">Eletronic</string>
+    <string name="pop">Pop</string>
+    <string name="acustic">Acustic</string>
+    <string name="toast_pausando">Pausando a música</string>
+    <string name="toast_tocando">Tocando a música</string>
+    <string name="toast_proxima_musica">Tocando a próxima música</string>
+    <string name="toast_musica_anterior">Tocando a música anterior</string>
+</resources>
