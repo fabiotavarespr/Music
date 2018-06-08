@@ -22,18 +22,26 @@ public class PlayingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playing);
+
+        // Objeto com a playlist
         playlist = (Playlist) getIntent().getSerializableExtra("playlist_music");
+
+        // Objeto com a musica
         music = (Music) getIntent().getSerializableExtra("music");
 
+        //Preenche a textview com nome da playlist
         TextView titulo = findViewById(R.id.tituloPlaylist);
         titulo.setText(playlist.getNome());
 
+        //Preenche a textview com nome da musica na tela
         TextView nomeMusica = findViewById(R.id.nomeMusica);
         nomeMusica.setText(music.getNome());
 
+        //Preenche a textview com a duracao
         TextView duracao = findViewById(R.id.duracao);
         duracao.setText(music.getDuracao());
 
+        //Ao clicar a imagem retorna para a selecao de playlist
         final ImageView playlists = findViewById(R.id.playlist);
         playlists.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +51,7 @@ public class PlayingActivity extends AppCompatActivity {
             }
         });
 
+        //Botao Proximo
         final ImageView buttonNext = findViewById(R.id.next);
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +64,7 @@ public class PlayingActivity extends AppCompatActivity {
             }
         });
 
+        //Botao Retornar
         final ImageView buttonBack = findViewById(R.id.back);
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +78,7 @@ public class PlayingActivity extends AppCompatActivity {
         });
 
 
+        //Botao Pause/Play
         final ImageView buttonPause = findViewById(R.id.pause);
         buttonPause.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +97,9 @@ public class PlayingActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Identifica a musica anterior da playlist
+     */
     private Music musicaAnterior() {
         if (playlist.getMusicas().get(0).getNome().equals(music.getNome())){
             return playlist.getMusicas().get(playlist.getMusicas().size()-1);
@@ -100,6 +114,9 @@ public class PlayingActivity extends AppCompatActivity {
         return null;
     }
 
+    /**
+     * Identifica a proxima musica da playlist
+     */
     private Music proximaMusica() {
         if (playlist.getMusicas().get(playlist.getMusicas().size()-1).getNome().equals(music.getNome())){
             return playlist.getMusicas().get(0);
