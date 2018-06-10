@@ -4,14 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import br.com.fabiotavares.music.domain.Music;
 import br.com.fabiotavares.music.domain.Playlist;
-import br.com.fabiotavares.music.domain.enums.Estilo;
-import br.com.fabiotavares.music.services.PopulaPlayList;
 
 public class PlayListActivity extends AppCompatActivity {
 
@@ -32,7 +29,7 @@ public class PlayListActivity extends AppCompatActivity {
             TextView nomeMusica = new TextView(this);
             nomeMusica.setText(music.getNome());
             nomeMusica.setTextAppearance(getApplicationContext(), R.style.TextViewNomeMusica);
-            nomeMusica.setPadding(  10,10,10,10);
+            nomeMusica.setPadding(10, 10, 10, 10);
             llMusica.addView(nomeMusica);
 
             nomeMusica.setOnClickListener(new View.OnClickListener() {
@@ -47,7 +44,6 @@ public class PlayListActivity extends AppCompatActivity {
         }
 
     }
-
 
 
 }

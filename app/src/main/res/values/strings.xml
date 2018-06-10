@@ -8,4 +8,5 @@
     <string name="toast_tocando">Tocando a música</string>
     <string name="toast_proxima_musica">Tocando a próxima música</string>
     <string name="toast_musica_anterior">Tocando a música anterior</string>
+    <string name="comprar">Comprar</string>
 </resources>

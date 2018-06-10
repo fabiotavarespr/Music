@@ -55,19 +55,21 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
                 android:gravity="center" />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                app:srcCompat="@drawable/playing"
-                android:layout_weight="1"/>
             <TextView
                 android:id="@+id/duracao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/adquirir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:text="@string/comprar"
+                android:textStyle="bold"/>
+
         </LinearLayout>
 
         </LinearLayout>
