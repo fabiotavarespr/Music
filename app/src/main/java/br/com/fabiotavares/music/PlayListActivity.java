@@ -28,7 +28,7 @@ public class PlayListActivity extends AppCompatActivity {
         for (final Music music : playlist.getMusicas()) {
             TextView nomeMusica = new TextView(this);
             nomeMusica.setText(music.getNome());
-            nomeMusica.setTextAppearance(getApplicationContext(), R.style.TextViewNomeMusica);
+            nomeMusica.setTextAppearance(R.style.TextViewNomeMusica);
             nomeMusica.setPadding(10, 10, 10, 10);
             llMusica.addView(nomeMusica);
 

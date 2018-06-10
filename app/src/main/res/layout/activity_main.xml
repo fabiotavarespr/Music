@@ -24,13 +24,13 @@
             android:layout_centerVertical="true"
             android:orientation="horizontal">
 
-            <LinearLayout
-                style="@style/LinearTelaInicial">
+            <LinearLayout style="@style/LinearTelaInicial">
 
                 <ImageView
                     android:id="@+id/imageAcustic"
                     style="@style/ImagemTelaInicial"
-                    app:srcCompat="@drawable/acustic" />
+                    app:srcCompat="@drawable/acustic"
+                    android:tooltipText="@string/acustic" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -39,13 +39,13 @@
                     android:text="@string/acustic" />
             </LinearLayout>
 
-            <LinearLayout
-                style="@style/LinearTelaInicial">
+            <LinearLayout style="@style/LinearTelaInicial">
 
                 <ImageView
                     android:id="@+id/imageEletronic"
                     style="@style/ImagemTelaInicial"
-                    app:srcCompat="@drawable/eletronic" />
+                    app:srcCompat="@drawable/eletronic"
+                    android:tooltipText="@string/eletronic" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -62,13 +62,13 @@
             android:layout_centerVertical="true"
             android:orientation="horizontal">
 
-            <LinearLayout
-                style="@style/LinearTelaInicial">
+            <LinearLayout style="@style/LinearTelaInicial">
 
                 <ImageView
                     android:id="@+id/imageRock"
                     style="@style/ImagemTelaInicial"
-                    app:srcCompat="@drawable/rock" />
+                    app:srcCompat="@drawable/rock"
+                    android:tooltipText="@string/rock" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -77,13 +77,13 @@
                     android:text="@string/rock" />
             </LinearLayout>
 
-            <LinearLayout
-                style="@style/LinearTelaInicial">
+            <LinearLayout style="@style/LinearTelaInicial">
 
                 <ImageView
                     android:id="@+id/imagePop"
                     style="@style/ImagemTelaInicial"
-                    app:srcCompat="@drawable/pop" />
+                    app:srcCompat="@drawable/pop"
+                    android:tooltipText="@string/pop" />
 
                 <TextView
                     android:layout_width="wrap_content"

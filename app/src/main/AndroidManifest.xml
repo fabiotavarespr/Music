@@ -16,10 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PlayListActivity"
+        <activity
+            android:name=".PlayListActivity"
             android:label="@string/title_activity_principal"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".PlayingActivity"/>
+        <activity android:name=".PlayingActivity" />
     </application>
 
     <!-- Enables the Google Pay API -->
