@@ -18,7 +18,7 @@ public class PlayListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_list);
-        playlist = (Playlist) getIntent().getSerializableExtra("playlist_music");
+        playlist = (Playlist) getIntent().getParcelableExtra("playlist_music");
 
         TextView titulo = findViewById(R.id.tituloPlaylist);
         titulo.setText(playlist.getNome());

@@ -1,15 +1,11 @@
 package br.com.fabiotavares.music;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import java.util.List;
-
-import br.com.fabiotavares.music.domain.Playlist;
 import br.com.fabiotavares.music.services.PopulaPlayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,9 +16,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Rock
-        ImageView rock = findViewById(R.id.imageRock);
+        ImageView imageViewRock = findViewById(R.id.imageRock);
 
-        rock.setOnClickListener(new View.OnClickListener() {
+        imageViewRock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, PlayListActivity.class);
@@ -32,9 +28,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Eletronic
-        ImageView eletronic = findViewById(R.id.imageEletronic);
+        ImageView imageViewEletronic = findViewById(R.id.imageEletronic);
 
-        eletronic.setOnClickListener(new View.OnClickListener() {
+        imageViewEletronic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, PlayListActivity.class);
@@ -44,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Pop
-        ImageView pop = findViewById(R.id.imagePop);
+        ImageView imageViewPop = findViewById(R.id.imagePop);
 
-        pop.setOnClickListener(new View.OnClickListener() {
+        imageViewPop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, PlayListActivity.class);
@@ -56,9 +52,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Acustic
-        ImageView acustic = findViewById(R.id.imageAcustic);
+        ImageView imageViewAcustic = findViewById(R.id.imageAcustic);
 
-        acustic.setOnClickListener(new View.OnClickListener() {
+        imageViewAcustic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, PlayListActivity.class);

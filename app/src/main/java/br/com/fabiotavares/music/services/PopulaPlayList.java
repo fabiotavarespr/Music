@@ -7,7 +7,7 @@ import br.com.fabiotavares.music.domain.Playlist;
 
 public class PopulaPlayList {
 
-    public static final Playlist playlistEletronic() {
+    public static Playlist playlistEletronic() {
         Playlist playlist = new Playlist();
         playlist.setNome("Eletronic");
         Music musicEletronic1 = new Music("Alok e Mathieu Koss - Big Jet Plane", "1:45");
@@ -20,7 +20,7 @@ public class PopulaPlayList {
         return playlist;
     }
 
-    public static final Playlist playlistRock() {
+    public static Playlist playlistRock() {
         Playlist playlist = new Playlist();
         playlist.setNome("Rock");
         Music musicRock1 = new Music("The Beatles - Help!", "03:03");
@@ -45,7 +45,7 @@ public class PopulaPlayList {
         return playlist;
     }
 
-    public static final Playlist playlistAcustic() {
+    public static Playlist playlistAcustic() {
         Playlist playlist = new Playlist();
         playlist.setNome("Acustic");
         Music musicAcustic1 = new Music("Karizma Duo - Shut up and Dance", "3:40");
@@ -59,7 +59,7 @@ public class PopulaPlayList {
         return playlist;
     }
 
-    public static final Playlist playlistPop() {
+    public static Playlist playlistPop() {
         Playlist playlist = new Playlist();
         playlist.setNome("Pop");
         Music musicPop1 = new Music("Troye Sivan - My My My!", "1:45");
