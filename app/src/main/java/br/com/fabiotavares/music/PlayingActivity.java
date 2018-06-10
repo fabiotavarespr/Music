@@ -31,12 +31,11 @@ import br.com.fabiotavares.music.domain.Playlist;
 
 public class PlayingActivity extends AppCompatActivity {
 
+    private static final int LOAD_PAYMENT_DATA_REQUEST_CODE = 991;
     private Playlist playlist;
     private Music music;
     private boolean pause = true;
     private PaymentsClient mPaymentsClient;
-    private static final int LOAD_PAYMENT_DATA_REQUEST_CODE = 991;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -199,62 +198,62 @@ public class PlayingActivity extends AppCompatActivity {
                 });
     }
 
-        private PaymentDataRequest createPaymentDataRequest () {
-            PaymentDataRequest.Builder request =
-                    PaymentDataRequest.newBuilder()
-                            .setTransactionInfo(
-                                    TransactionInfo.newBuilder()
-                                            .setTotalPriceStatus(WalletConstants.TOTAL_PRICE_STATUS_FINAL)
-                                            .setTotalPrice("10.00")
-                                            .setCurrencyCode("USD")
-                                            .build())
-                            .addAllowedPaymentMethod(WalletConstants.PAYMENT_METHOD_CARD)
-                            .addAllowedPaymentMethod(WalletConstants.PAYMENT_METHOD_TOKENIZED_CARD)
-                            .setCardRequirements(
-                                    CardRequirements.newBuilder()
-                                            .addAllowedCardNetworks(
-                                                    Arrays.asList(
-                                                            WalletConstants.CARD_NETWORK_AMEX,
-                                                            WalletConstants.CARD_NETWORK_DISCOVER,
-                                                            WalletConstants.CARD_NETWORK_VISA,
-                                                            WalletConstants.CARD_NETWORK_MASTERCARD))
-                                            .build());
+    private PaymentDataRequest createPaymentDataRequest() {
+        PaymentDataRequest.Builder request =
+                PaymentDataRequest.newBuilder()
+                        .setTransactionInfo(
+                                TransactionInfo.newBuilder()
+                                        .setTotalPriceStatus(WalletConstants.TOTAL_PRICE_STATUS_FINAL)
+                                        .setTotalPrice("1.00")
+                                        .setCurrencyCode("USD")
+                                        .build())
+                        .addAllowedPaymentMethod(WalletConstants.PAYMENT_METHOD_CARD)
+                        .addAllowedPaymentMethod(WalletConstants.PAYMENT_METHOD_TOKENIZED_CARD)
+                        .setCardRequirements(
+                                CardRequirements.newBuilder()
+                                        .addAllowedCardNetworks(
+                                                Arrays.asList(
+                                                        WalletConstants.CARD_NETWORK_AMEX,
+                                                        WalletConstants.CARD_NETWORK_DISCOVER,
+                                                        WalletConstants.CARD_NETWORK_VISA,
+                                                        WalletConstants.CARD_NETWORK_MASTERCARD))
+                                        .build());
 
-            PaymentMethodTokenizationParameters params =
-                    PaymentMethodTokenizationParameters.newBuilder()
-                            .setPaymentMethodTokenizationType(
-                                    WalletConstants.PAYMENT_METHOD_TOKENIZATION_TYPE_PAYMENT_GATEWAY)
-                            .addParameter("gateway", "example")
-                            .addParameter("gatewayMerchantId", "exampleGatewayMerchantId")
-                            .build();
+        PaymentMethodTokenizationParameters params =
+                PaymentMethodTokenizationParameters.newBuilder()
+                        .setPaymentMethodTokenizationType(
+                                WalletConstants.PAYMENT_METHOD_TOKENIZATION_TYPE_PAYMENT_GATEWAY)
+                        .addParameter("gateway", "paysafe")
+                        .addParameter("gatewayMerchantId", "yourMerchantIdGivenFromYourGateway")
+                        .build();
 
-            request.setPaymentMethodTokenizationParameters(params);
-            return request.build();
+        request.setPaymentMethodTokenizationParameters(params);
+        return request.build();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case LOAD_PAYMENT_DATA_REQUEST_CODE:
+                switch (resultCode) {
+                    case Activity.RESULT_OK:
+                        PaymentData paymentData = PaymentData.getFromIntent(data);
+                        String token = paymentData.getPaymentMethodToken().getToken();
+                        break;
+                    case Activity.RESULT_CANCELED:
+                        break;
+                    case AutoResolveHelper.RESULT_ERROR:
+                        Status status = AutoResolveHelper.getStatusFromIntent(data);
+                        // Log the status for debugging.
+                        // Generally, there is no need to show an error to
+                        // the user as the Google Pay API will do that.
+                        break;
+                    default:
+                        // Do nothing.
+                }
+                break;
+            default:
+                // Do nothing.
         }
-
-        @Override
-        public void onActivityResult(int requestCode, int resultCode, Intent data) {
-            switch (requestCode) {
-                case LOAD_PAYMENT_DATA_REQUEST_CODE:
-                    switch (resultCode) {
-                        case Activity.RESULT_OK:
-                            PaymentData paymentData = PaymentData.getFromIntent(data);
-                            String token = paymentData.getPaymentMethodToken().getToken();
-                            break;
-                        case Activity.RESULT_CANCELED:
-                            break;
-                        case AutoResolveHelper.RESULT_ERROR:
-                            Status status = AutoResolveHelper.getStatusFromIntent(data);
-                            // Log the status for debugging.
-                            // Generally, there is no need to show an error to
-                            // the user as the Google Pay API will do that.
-                            break;
-                        default:
-                            // Do nothing.
-                    }
-                    break;
-                default:
-                    // Do nothing.
-            }
-        }
+    }
 }
